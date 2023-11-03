@@ -46,7 +46,7 @@ router.get('/send-details/:studentName', teacherController.sendDetails);
 router.post('/upload-industry-marks/:studentRoll', teacherController.uploadIndustryMarks);
 
 // get and upload faculty marks
-router.post('/upload-faculty-marks/:studentName', passport.authenticate('jwt', { session: false }), teacherController.uploadFacultyMarks);
+router.post('/upload-faculty-marks/:studentRoll', passport.authenticate('jwt', { session: false }), teacherController.uploadFacultyMarks);
 
 // map document
 router.get('/file/map', passport.authenticate('jwt', { session: false }), teacherController.mapFile);

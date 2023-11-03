@@ -303,7 +303,7 @@ const sendMail = async (req, res) => {
             to: student.organization_mentor.mentor_email,
             subject: "Ask for Marks Evaluation",
             text: "Dear Sir/Madam, I am " + teacher.name + 
-            " from the Department of Computer Engineering, Government Polytechnic Mumbai. I would like to ask you to evaluate the marks of my student " + 
+            " from the Department of Computer Engineering, Atharva College of Enginnering. I would like to ask you to evaluate the marks of my student " + 
             student.name + 
             " . Google Form link for the same is attached below Thank you.\n\n" + 
             link
@@ -369,7 +369,7 @@ const sendBulkMail = async (req, res) => {
                 to: student.organization_mentor.mentor_email,
                 subject: "Ask for Marks Evaluation",
                 text: "Dear Sir/Madam, I am " + teacher.name + 
-                " from the Department of Computer Engineering, Government Polytechnic Mumbai. I would like to ask you to evaluate the marks of my student " + 
+                " from the Department of Computer Engineering, Atharva College Of Engineering. I would like to ask you to evaluate the marks of my student " + 
                 student.name + 
                 " . Google Form link for the same is attached below Thank you.\n\n" + 
                 link
@@ -514,10 +514,10 @@ const uploadIndustryMarks = async (req, res) => {
 const uploadFacultyMarks = async (req, res) => {
     
     try {
-        const studentName = req.params.studentName
+        const enrollment_no = req.params.studentRoll
         const { month, discipline, attitude, maintenance, report, achievement } = req.body;
 
-        const student = await Student.findOne({ name: studentName }, { password: 0 })
+        const student = await Student.findOne({ enrollment_no: enrollment_no }, { password: 0 })
 
         if(!student) {
             res.status(404).json({
